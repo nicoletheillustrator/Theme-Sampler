@@ -1,0 +1,101 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+}
+
+.mode-wrapper {
+  width: 21px;
+  height: 21px;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 50%;
+  background-color: #E8E6E6;
+  padding: 10px 10px 10px 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 1px 1px 8px rgba(29, 29, 29, 0.241);
+}
+
+span {
+  z-index: 1;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.716);
+  margin-top: -15px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  -webkit-animation: animate 950ms linear infinite;
+          animation: animate 950ms linear infinite;
+}
+
+#mouse-event {
+  padding: 4px;
+  border-radius: 3px;
+  margin-left: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+  }
+}
+
+@keyframes animate {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+  }
+}
+#light {
+  background-color: #F5F5F5;
+  color: #222F44;
+}
+#light .mode-icon {
+  z-index: 2;
+  width: 20px;
+}
+#light #mouse-event {
+  background-color: #222F44;
+  color: #F5F5F5;
+}
+
+#dark {
+  background-color: rgb(31, 31, 75);
+  color: white;
+}
+#dark .mode-wrapper {
+  background-color: #2D3F5A;
+}
+#dark .mode-icon {
+  width: 20px;
+}
+#dark #mouse-event {
+  background-color: #F5F5F5;
+  color: #222F44;
+}
+
+#light .button-el {
+  background-color: #222F44;
+}/*# sourceMappingURL=main.css.map */

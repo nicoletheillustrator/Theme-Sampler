@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import moon from "./images/moon-icon.svg"
 import sun from "./images/sun-solid.svg"
 import MouseOnMode from "./components/mouseonmode.js"
+import Icon from './components/icon'
 export const ThemeContext = createContext(null);
 
 // 👇 this is for setting localStorage, on refresh page keeps memory of the theme and mode
@@ -45,7 +46,7 @@ function App() {
   const [theme, setTheme] = useLocalState("theme", "light");
   const [mode, setMode] = useLocalState("mode", sun)  
 
-//👇toggleMode is for changing the sun to moon during toggle theme//
+//👇toggleMode is for schanging the sun to moon during toggle theme//
 function toggleMode() {
   setMode((setMode) => (setMode === sun ? moon : sun))
 }
@@ -89,10 +90,10 @@ function toggleSuggestionOff() {
   const tipSugg = document.getElementById('mouse-event')
     tipSugg.style.display = 'none'
 }
-function toggleMouseDown() {
-  const tipSugg = document.getElementById('mouse-event')
-    tipSugg.style.display = 'none'
-}
+// function toggleMouseDown() {
+//   const tipSugg = document.getElementById('mouse-event')
+//     tipSugg.style.display = 'none'
+// }
 
 //👇 No functions() below this point 👇 
   return (
@@ -105,10 +106,9 @@ function toggleMouseDown() {
         </h2>
         <p className="__paragraph">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum vero velit reiciendis enim ea pariatur dolore obcaecati illo nam. Optio incidunt voluptate provident quidem maiores!</p>
 
-     <div className="mode-wrapper"  onClick={toggleRipple}  onMouseOut={toggleSuggestionOff} onMouseDown={toggleMouseDown} >
-     <img  className="mode-icon" src={mode} onMouseEnter={toggleSuggestion} alt="theme icon"></img>
-      <div id='wrap' ></div>
-        </div>
+      <Icon toggleRipple={toggleRipple} toggleSuggestionOff={toggleSuggestionOff} toggleSuggestion={toggleSuggestion} mode={mode}/>
+        
+        
         <MouseOnMode />
 
       </main>
